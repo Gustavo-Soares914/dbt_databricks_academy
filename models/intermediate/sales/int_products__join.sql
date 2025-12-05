@@ -13,8 +13,8 @@ with
     )
 
     , categories as (
-            select *
-            from {{ ref('stg_nwind__categories') }}        
+        select *
+        from {{ ref('stg_nwind__categories') }}        
         )
 
     -- transformation
