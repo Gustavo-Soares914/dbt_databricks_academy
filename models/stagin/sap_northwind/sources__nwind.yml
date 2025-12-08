@@ -15,4 +15,34 @@ sources:
               - not_null
           - name: customer_id
             description: Chave estrangeira para conectar com a tabela customers
+
       - name: order_details
+
+      - name: products
+        description: Tabela de produtos do erp da northwind
+        columns:
+          - name: product_id
+            description: Chave primaria da tabela produtos
+            tests:
+              - unique
+              - not_null
+          - name: category_id
+            description: Chave estrangeira para conectar com a tabela categories 
+
+      - name: suppliers
+        description: Tabela de fornecedores do erp da northwind
+        columns:
+          - name: supplier_id
+            description: Chave primaria da tabela suppliers
+            tests:
+              - unique
+              - not_null
+              
+      - name: categories
+        description: Tabela de categorias do erp da northwind
+        columns:
+          - name: category_id
+            description: Chave primaria da tabela categories
+            tests:
+              - unique
+              - not_null
