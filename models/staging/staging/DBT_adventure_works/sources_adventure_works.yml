@@ -1,0 +1,72 @@
+version: 2
+
+sources:
+  - name: adv_works
+    database: fea_academy
+    schema: adventure_works
+    tables:
+
+      - name: sales_salesorderheader
+        description: Tabela de vendas do erp adventure_works
+        columns:
+          - name: salesorderid
+            description: Chave primaria da tabela vendas
+            tests:
+              - unique
+              - not_null
+          - name: customerid
+            description: Chave estrangeira para conectar com a tabela sales_customer
+
+      - name: sales_salesorderdetail
+        description: Tabela de detalhes das vendas do erp adventure_works
+        columns:
+          - name: salesorderdetailid
+            description: Chave primaria da tabela de detalhes das vendas
+            tests:
+              - unique
+              - not_null
+          - name: salesorderid
+            description: Chave estrangeira para conectar com a tabela sales_salesorderheader
+       
+      - name: sales_customer
+        description: Tabela de clientes
+        columns:
+          - name: customerid
+            description: Chave primaria da tabela de clientes
+            tests:
+              - unique
+              - not_null
+          - name: territoryid
+            description: Chave estrangeira para conectar com a tabela sales_salesterritory 
+
+      - name: sales_creditcard
+        description: Tabela de vendas no cartão de credito
+        columns:
+          - name: creditcardid
+            description: Chave primaria da tabela vendas no cartão de credito
+            tests:
+              - unique
+              - not_null
+
+      - name: sales_salesreason
+        description: Tabela de motivo da venda
+        columns:
+          - name: salesreasonid
+            description: Chave primaria da tabela de motivo da venda
+            tests:
+              - unique
+              - not_null
+
+      - name: person_address
+        description: Tabela de endereço
+        columns:
+          - name: addressid
+            description: Chave primaria da tabela de endereço
+            tests:
+              - unique
+              - not_null        
+          
+
+          
+            
+            
