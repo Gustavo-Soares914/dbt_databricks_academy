@@ -2,14 +2,19 @@ with
 
     -- import ctes
 
-    sales_orderheader as (
+    sales_order_header as (
         select *
         from {{ ref('stg_sales__salesorderheader') }}
     )
 
-    , sales_order_detail as (
+    , sales_order_sales_reason as (
         select *
-        from {{ ref('stg_sales__salesorderdetail') }}
+        from {{ ref('stg_sales__sales_salesorderheadersalesreason') }}
+    )
+
+       , sales_reason as (
+        select *
+        from {{ ref('stg_sales__salesreason') }}
     )
 
     -- transformation
@@ -17,26 +22,17 @@ with
     , joined as (
         select
             sales_order_header.salesorderid_pk as sales_order_id
-            , sales_order_header.order_date
-            , sales_order_header.cliente_id as customer_id
-            , sales_order_header.territory_id
-            , sales_order_header.creditcard_id as credit_card_id
-            , sales_order_header.subtotal
-            , sales_order_header.taxamt 
-            , sales_order_header.freight
-            , sales_order_header.total_due
+            , sales_order_header.status_id as order_status
+            , sales_reason.salesreasonid as sales_reason_id
+            , sales_reason.name as sales_reason_name
+            , sales_reason.reason_type as sales_reason_type
             
-            , sales_order_detail.salesorderdetailid_pk as sales_order_detail_id
-            , sales_order_detail.salesorder_id as order_id
-            , sales_order_detail.quantidade as order_qty
-            , sales_order_detail.produto_id as product_id
-            , sales_order_detail.specialoffer_id as special_offer_id
-            , sales_order_detail.preco_unitario as unit_price
-            , sales_order_detail.desconto_unitario as unit_price_discount,
 
-            
         from sales_order_header
-        inner join sales_order_detail 
-        on sales_order_header.salesorderid_pk = sales_order_detail.salesorder_id
+        left join sales_order_sales_reason 
+        on sales_order_header.salesorderid_pk = sales_order_sales_reason.salesorderid_pk
+        left join sales_reason
+        on sales_order_sales_reason.sales_reason_id = sales_reason.salesreasonid_pk
     )
+    
 select * from joined
