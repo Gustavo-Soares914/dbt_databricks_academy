@@ -22,10 +22,10 @@ with
     , joined as (
         select
             sales_order_header.salesorderid_pk as sales_order_id
-            , sales_order_header.status_id as order_status
-            , sales_reason.salesreasonid as sales_reason_id
-            , sales_reason.name as sales_reason_name
-            , sales_reason.reason_type as sales_reason_type
+            , sales_order_header.status_id as status
+            , sales_reason.salesreasonid_pk as sales_reason_id
+            , sales_reason.nome as sales_reason_name
+            , sales_reason.motivo_da_compra as sales_reason_type
             
 
         from sales_order_header
