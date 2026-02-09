@@ -65,6 +65,18 @@ sources:
             tests:
               - unique
               - not_null        
+
+      - name: sales_salesorderheadersalesreason
+        description: Tabela de razao de compra
+        columns:
+          - name: salesorderid
+            description: Chave primaria da tabela de razao da compra
+            tests:
+              - unique
+              - not_null
+          - name: salesreasonid
+            description: Chave estrangeira para conectar com a tabela sales_salesreason 
+        
           
 
           
