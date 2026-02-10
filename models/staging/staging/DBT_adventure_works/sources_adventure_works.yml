@@ -76,9 +76,41 @@ sources:
               - not_null
           - name: salesreasonid
             description: Chave estrangeira para conectar com a tabela sales_salesreason 
-        
-          
 
+      - name: production_product
+        description: Tabela de produtos
+        columns:
+          - name: productid
+            description: Chave primaria da tabela de produtos
+            tests:
+              - unique
+              - not_null
           
-            
-            
+      - name: production_productcategory
+        description: Tabela de categorias de produtos
+        columns:
+          - name: productcategoryid
+            description: Chave primaria da categorias de produtos
+            tests:
+              - unique
+              - not_null
+                    
+      - name: production_productmodel
+        description: Tabela de modelos
+        columns:
+          - name: productmodelid
+            description: Chave primaria da tabela de modelos
+            tests:
+              - unique
+              - not_null
+
+      - name: production_productsubcategory
+        description: Tabela de subcategorias
+        columns:
+          - name: productsubcategoryid
+            description: Chave primaria da tabela de modelos
+            tests:
+              - unique
+              - not_null          
+          - name: productcategoryid
+            description: Chave estrangeira para conectar com a tabela production_productcategory
