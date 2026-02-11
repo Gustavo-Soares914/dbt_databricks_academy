@@ -125,4 +125,27 @@ sources:
             tests:
               - unique
               - not_null
-        
+
+      - name: person_person
+        description: Tabela de pessoa
+        columns:
+          - name: businessentityid
+            description: Chave primaria da tabela de pessoa
+              - unique
+              - not_null  
+
+      - name: person_countryregion
+        description: Tabela de país 
+        columns:
+          - name: countryregioncode
+            description: Chave primaria da tabela de pais
+              - unique
+              - not_null         
+
+      - name: person_businessentityaddress
+        description: Tabela de endereço comercial 
+        columns:
+          - name: businessentityid
+            description: Chave primaria da tabela de endereço comercial
+              - unique
+              - not_null              
