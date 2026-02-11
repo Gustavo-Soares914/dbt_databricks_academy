@@ -64,7 +64,9 @@ sources:
             description: Chave primaria da tabela de endereço
             tests:
               - unique
-              - not_null        
+              - not_null
+          - name: stateprovinceid
+            description: Chave estrangeira para conectar na tabela person_stateprovince
 
       - name: sales_salesorderheadersalesreason
         description: Tabela de razao de compra
@@ -114,3 +116,13 @@ sources:
               - not_null          
           - name: productcategoryid
             description: Chave estrangeira para conectar com a tabela production_productcategory
+
+      - name: person_stateprovince
+        description: Tabela de estado provincia
+        columns:
+          - name: stateprovinceid
+            description: Chave primaria da tabela de provincia
+            tests:
+              - unique
+              - not_null
+        
