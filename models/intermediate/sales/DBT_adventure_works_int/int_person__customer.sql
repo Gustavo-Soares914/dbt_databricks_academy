@@ -1,6 +1,6 @@
 with
 
-customers as (
+customer as (
     select
         customer_id
         , person_id
@@ -15,7 +15,7 @@ customers as (
         , first_name
         , last_name
 
-    from {{ ref( 'person_person' ) }}
+    from {{ ref('stg_person__person') }}
 )
 
 , entity_address as (
@@ -23,12 +23,12 @@ customers as (
         business_entity_id
         , address_id
         , row_number() over (
-            partition by businessentity_id
+            partition by business_entity_id
             order by address_id
         ) as rn
         , address_type_id
 
-    from {{ ( 'person_businessentityaddress' ) }}
+    from {{ ref('stg_person__businessentityaddress') }}
 )
 
 , address as (
@@ -39,7 +39,7 @@ customers as (
         , province_id
         , postal_code
 
-    from {{ ( 'person_address' ) }}
+    from {{ ref('stg_person__address') }}
 )
 
 , state as (
@@ -50,7 +50,7 @@ customers as (
         , province_name
         , territory_id
 
-    from {{ ( 'person_stateprovince' ) }}
+    from {{ ref('stg_person__stateprovince') }}
 )
 
 , country as (
@@ -58,8 +58,7 @@ customers as (
         country_region_code_pk
         , country_name
 
-    from {{ ( 'person_countryregion' ) }}
-
+    from {{ ref('stg_person__countryregion') }}
 )
 
 select 
@@ -69,7 +68,8 @@ select
 
     , persons.business_entity_id
     , persons.person_type
-    , persons.concat(persons.first_name, ' ', persons.last_name) as full_name
+    , concat(first_name, ' ', last_name) as full_name
+
     
     , entity_address.business_entity_id
     , entity_address.address_id
@@ -91,11 +91,11 @@ select
     , country.country_region_code_pk
     , country.country_name
 
-from customers
+from customer
     left join persons
-        on customer.person_id = entity_address.business_entity_id 
+        on customer.person_id = persons.business_entity_id
     left join entity_address
-        on entity_address.business_entity_id = entity_address.business_entity_id
+        on persons.business_entity_id = entity_address.business_entity_id
         and entity_address.rn = 1
     left join address
         on entity_address.address_id = address.address_id
