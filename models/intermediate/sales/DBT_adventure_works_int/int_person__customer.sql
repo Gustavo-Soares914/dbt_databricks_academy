@@ -4,7 +4,7 @@ customer as (
     select
         customer_id
         , person_id
-        , territory_id
+        , territory_id_pk
     from {{ ref('stg_sales__customer') }}
 )
 
@@ -20,9 +20,9 @@ customer as (
 
 , entity_address as (
     select
-        business_entity_id
-        , address_id
-        , address_type_id
+        business_entity_id_pk
+        , address_id_pk
+        , address_type_id_pk
 
     from {{ ref('stg_person__businessentityaddress') }}
 )
@@ -60,16 +60,12 @@ customer as (
 select 
     customer.customer_id
     , customer.person_id
-    , customer.territory_id
 
     , persons.business_entity_id
-    , persons.person_type
     , concat(persons.first_name, ' ',persons.last_name) as full_name
 
     
-    , entity_address.business_entity_id
-    , entity_address.address_id
-    , entity_address.address_type_id
+    , entity_address.address_type_id_pk
 
     , address.address_id
     , address.address
@@ -77,22 +73,19 @@ select
     , address.province_id
     , address.postal_code
 
-    , state.stateprovince_id
-    , state.state_province_code
     , state.country_region_code
     , state.province_name
     , state.territory_id
 
-    , country.country_region_code_pk
     , country.country_name
 
 from customer
     left join persons
         on customer.person_id = persons.business_entity_id
     left join entity_address
-        on persons.business_entity_id = entity_address.business_entity_id
+        on persons.business_entity_id = entity_address.business_entity_id_pk
     left join address
-        on entity_address.address_id = address.address_id
+        on entity_address.address_id_pk = address.address_id
     left join state 
         on address.province_id = state.stateprovince_id
     left join country
