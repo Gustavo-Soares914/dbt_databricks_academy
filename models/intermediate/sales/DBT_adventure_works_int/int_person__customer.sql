@@ -22,10 +22,6 @@ customer as (
     select
         business_entity_id
         , address_id
-        , row_number() over (
-            partition by business_entity_id
-            order by address_id
-        ) as rn
         , address_type_id
 
     from {{ ref('stg_person__businessentityaddress') }}
@@ -68,12 +64,11 @@ select
 
     , persons.business_entity_id
     , persons.person_type
-    , concat(first_name, ' ', last_name) as full_name
+    , concat(persons.first_name, ' ',persons.last_name) as full_name
 
     
     , entity_address.business_entity_id
     , entity_address.address_id
-    , entity_address.rn
     , entity_address.address_type_id
 
     , address.address_id
@@ -96,7 +91,6 @@ from customer
         on customer.person_id = persons.business_entity_id
     left join entity_address
         on persons.business_entity_id = entity_address.business_entity_id
-        and entity_address.rn = 1
     left join address
         on entity_address.address_id = address.address_id
     left join state 
