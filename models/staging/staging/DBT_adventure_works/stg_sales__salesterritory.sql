@@ -13,6 +13,7 @@ renamed as (
         , cast(group as string) as group
         , cast(salesytd as int) as sales_ytd
         , cast(saleslastyear as int) as sales_last_year
+        from source_territory
 )
 
 select * from renamed
