@@ -148,4 +148,13 @@ sources:
           - name: businessentityid
             description: Chave primaria da tabela de endereço comercial
               - unique
-              - not_null              
+              - not_null
+          
+      - name: sales_salesterritory
+        description: Tabela de território da venda
+        columns:
+          - name: territoryid
+            description: Chave primaria da tabela de território da venda 
+              - unique
+              - not_null
+              
