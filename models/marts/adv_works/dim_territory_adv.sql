@@ -10,8 +10,8 @@ select
     , territory_id
     , territory_name
     , country_region_code
-    , group
-    , sales_ytd
-    , sales_last_year
+    , group as territory_group
+    --, sales_ytd, vou colocar essas metricas apenas na fato vendas para evitar uma modelagem hibrida e quebrar caso tenham novas vendas
+    --, sales_last_year
 
 from base  
