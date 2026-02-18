@@ -3,7 +3,7 @@ with
 
    products as (
         select 
-            product_id as product_id
+            product_id
             , product_name
             , product_number
             , product_subcategory_id
@@ -34,21 +34,16 @@ with
 )
 
    select 
-        products.product_id
+
+        {{ dbt_utils.generate_surrogate_key(['products.product_id']) }} as product_sk
+
+        , products.product_id
         , products.product_name
         , products.product_number
-        , products.product_subcategory_id -- tem como colocar uma escrita ao inves de NULL? 
-        , products.product_model_id
 
-        , categoryes.product_category_id
-        , categoryes.category_name
-
-        , model.model_id
-        , model.model_name
-
-        , subcategory.subcategory_id
-        , subcategory.category_id
-        , subcategory.subcategory_name
+        , coalesce(subcategory.subcategory_name, 'Unknown') as subcategory_name
+        , coalesce(categoryes.category_name, 'Unknown') as category_name
+        , coalesce(model.model_name, 'Unknown') as model_name
 
    from products
    left join subcategory

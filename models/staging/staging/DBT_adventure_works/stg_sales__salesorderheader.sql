@@ -10,6 +10,7 @@ renamed as (
         cast(salesorderid as int) as salesorderid_pk -- devo colocar PK em todas?
         , cast (orderdate as date) as order_date
         , cast (status as int) as status_id
+        , cast (shipdate as date) as ship_date
         , cast (customerid as int) as cliente_id
         , cast (territoryid as int) as territory_id
         , cast (creditcardid as int) as creditcard_id

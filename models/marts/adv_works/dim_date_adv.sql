@@ -12,7 +12,9 @@ with date_spine as (
 )
 
 select
-    full_date as date_day
+
+    cast(date_format(full_date, 'yyyyMMdd') as int) as date_sk
+    , full_date as date_day
     , year(full_date) as year
     , month(full_date) as month
     , day(full_date) as day
