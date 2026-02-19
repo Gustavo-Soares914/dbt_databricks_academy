@@ -19,12 +19,19 @@ customer as (
 )
 
 , entity_address as (
-    select
-        business_entity_id_pk
-        , address_id_pk
-        , address_type_id_pk
-
-    from {{ ref('stg_person__businessentityaddress') }}
+    select *
+    from (
+        select
+            business_entity_id_pk
+            , address_id_pk
+            , address_type_id_pk
+            , row_number() over (
+                partition by business_entity_id_pk
+                order by address_id_pk
+            ) as rn
+        from {{ ref('stg_person__businessentityaddress') }}
+    )
+    where rn = 1
 )
 
 , address as (

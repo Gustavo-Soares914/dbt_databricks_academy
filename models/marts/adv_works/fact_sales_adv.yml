@@ -2,12 +2,63 @@ version: 2
 
 models:
   - name: fact_sales_adv
-    columns:
+    description: >
+      Tabela fato de vendas onde cada linha representa um produto vendido em um pedido.
 
+    columns:
       - name: sales_sk
+        description: Chave primária da fato vendas gerada a partir do sales_order_detail_id.
         tests:
           - not_null
           - unique
 
+      - name: sales_order_detail_id
+        description: Identificador único de cada item de pedido.
+        tests:
+          - not_null
+          - unique
 
-              
+      - name: customer_sk
+        description: Chave substituta do cliente.
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_customer_adv')
+              field: customer_sk
+
+      - name: product_sk
+        description: Chave substituta do produto.
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_products_adv')
+              field: product_sk
+
+      - name: territory_sk
+        description: Chave substituta do território de vendas.
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_territory_adv')
+              field: territory_sk
+
+      - name: credit_card_sk
+        description: Chave substituta do cartão de crédito.
+        tests:
+          - relationships:
+              to: ref('dim_credit_card_adv')
+              field: credit_card_sk
+
+      - name: gross_amount
+        description: Valor bruto do item do pedido antes dos descontos.
+                     Cálculo order_qty * unit_price.
+
+      - name: net_amount
+        description: Valor líquido do item após aplicação do desconto.
+                     Cálculo order_qty * unit_price * (1 - desconto).
+
+      - name: order_date_sk
+        description: Data em que o pedido foi feito
+
+      - name: ship_date_sk
+        description: Data de envio do pedido
