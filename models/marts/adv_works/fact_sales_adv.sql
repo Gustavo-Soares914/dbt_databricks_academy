@@ -61,5 +61,5 @@ left join dim_territory
 left join dim_credit_card
     on base.credit_card_id = dim_credit_card.credit_card_id
 
-left join dim_date order_date_dim
+left join dim_date
     on cast(date_format(base.order_date, 'yyyyMMdd') as int) = dim_date.date_sk
