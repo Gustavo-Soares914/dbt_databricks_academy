@@ -30,9 +30,9 @@ with
             , sales_order_detail.produto_id as product_id
             , sales_order_detail.specialoffer_id as special_offer_id
             , sales_order_detail.preco_unitario as unit_price
-            , sales_order_detail.desconto_unitario as unit_price_discount,
+            , sales_order_detail.desconto_unitario as unit_price_discount
 
-            (sales_order_detail.quantidade * sales_order_detail.preco_unitario) as gross_amount
+            , (sales_order_detail.quantidade * sales_order_detail.preco_unitario) as gross_amount
             , (sales_order_detail.quantidade * sales_order_detail.preco_unitario * sales_order_detail.desconto_unitario) as discount_amount
             , (sales_order_detail.quantidade * sales_order_detail.preco_unitario * (1 - sales_order_detail.desconto_unitario)) as net_amount
 
