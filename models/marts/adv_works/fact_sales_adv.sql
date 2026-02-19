@@ -27,18 +27,22 @@ with base as (
 )
 
 , dim_date as (
-        select date_day, date_sk
+        select date_sk
         from {{ ref('dim_date_adv') }}
 )
 
 select 
-    base.sales_order_detail_id
+    {{ dbt_utils.generate_surrogate_key(['base.sales_order_detail_id']) }} as sales_sk
+    , base.sales_order_detail_id
 
     , dim_customer.customer_sk
     , dim_product.product_sk
     , dim_territory.territory_sk
     , dim_credit_card.credit_card_sk
     , dim_date.date_sk
+
+    , cast(date_format(base.order_date, 'yyyyMMdd') as int) as order_date_sk
+    , cast(date_format(base.ship_date, 'yyyyMMdd') as int) as ship_date_sk
 
     , base.order_qty
     , base.unit_price
