@@ -1,0 +1,14 @@
+version: 2
+
+models:
+  - name: dim_products_adv  
+    columns:
+      - name: product_sk
+        tests:
+          - unique
+          - not_null
+
+      - name: product_id
+        tests:
+          - unique
+          - not_null

@@ -1,0 +1,14 @@
+version: 2
+
+models:
+  - name: dim_credit_card_adv  
+    columns:
+      - name: credit_card_sk
+        tests:
+          - unique
+          - not_null
+
+      - name: credit_card_id
+        tests:
+          - unique
+          - not_null

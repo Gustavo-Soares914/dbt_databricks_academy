@@ -1,0 +1,13 @@
+version: 2
+
+models:
+  - name: fact_sales_adv
+    columns:
+
+      - name: sales_sk
+        tests:
+          - not_null
+          - unique
+
+
+              

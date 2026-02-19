@@ -1,0 +1,14 @@
+version: 2
+
+models:
+  - name: dim_territory_adv  
+    columns:
+      - name: territory_sk
+        tests:
+          - unique
+          - not_null
+
+      - name: territory_id
+        tests:
+          - unique
+          - not_null
