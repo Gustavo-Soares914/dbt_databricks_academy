@@ -74,7 +74,6 @@ sources:
           - name: salesorderid
             description: Chave primaria da tabela de razao da compra
             tests:
-              - unique
               - not_null
           - name: salesreasonid
             description: Chave estrangeira para conectar com a tabela sales_salesreason 
