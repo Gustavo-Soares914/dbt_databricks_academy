@@ -34,6 +34,7 @@ with base as (
 select 
     {{ dbt_utils.generate_surrogate_key(['base.sales_order_detail_id']) }} as sales_sk
     , base.sales_order_detail_id
+    , base.sales_order_id
 
     , dim_customer.customer_sk
     , dim_product.product_sk
@@ -47,7 +48,7 @@ select
     , base.order_qty
     , base.unit_price
     , base.unit_price_discount
-    , base.gross_amount
+    , cast(base.gross_amount as decimal (18,6)) as gross_amount
     , base.discount_amount
     , base.net_amount
 

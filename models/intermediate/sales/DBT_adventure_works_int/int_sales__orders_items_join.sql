@@ -32,12 +32,13 @@ with
             , sales_order_detail.preco_unitario as unit_price
             , sales_order_detail.desconto_unitario as unit_price_discount
 
-            , (sales_order_detail.quantidade * sales_order_detail.preco_unitario) as gross_amount
-            , (sales_order_detail.quantidade * sales_order_detail.preco_unitario * sales_order_detail.desconto_unitario) as discount_amount
-            , (sales_order_detail.quantidade * sales_order_detail.preco_unitario * (1 - sales_order_detail.desconto_unitario)) as net_amount
+            , cast (sales_order_detail.quantidade * sales_order_detail.preco_unitario as decimal (18,6)) as gross_amount
+            , cast (sales_order_detail.quantidade * sales_order_detail.preco_unitario * sales_order_detail.desconto_unitario as decimal(18,6)) as discount_amount
+            , cast (sales_order_detail.quantidade * sales_order_detail.preco_unitario * (1 - sales_order_detail.desconto_unitario) as decimal(18,6)) as net_amount
 
         from sales_order_header
         inner join sales_order_detail 
         on sales_order_header.salesorderid_pk = sales_order_detail.salesorder_id
+        where sales_order_header.status_id = 5
     )
 select * from joined

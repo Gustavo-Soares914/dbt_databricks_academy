@@ -14,10 +14,10 @@ renamed as (
         , cast (customerid as int) as cliente_id
         , cast (territoryid as int) as territory_id
         , cast (creditcardid as int) as creditcard_id
-        , cast (subtotal as decimal (10,2)) as subtotal -- está correto?
-        , cast (taxamt as decimal (10,2)) as taxamt -- está correto? não seri apercentual?
-        , cast (freight as decimal (10,2)) as freight
-        , cast (totaldue as decimal (10,2)) as total_due
+        , cast (subtotal as decimal (18,6)) as subtotal -- está correto?
+        , cast (taxamt as decimal (18,6)) as taxamt -- está correto? não seri apercentual?
+        , cast (freight as decimal (18,6)) as freight
+        , cast (totaldue as decimal (18,6)) as total_due
     from source_salesorderheader
 )
 
