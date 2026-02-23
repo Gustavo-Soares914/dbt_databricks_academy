@@ -1,0 +1,62 @@
+version: 2
+
+models:
+  - name: stg_sales__salesorderheader
+    description: Staging da tabela sales_salesorderheader da Adventure Works.
+
+    columns:
+      - name: salesorderid_pk
+        description: Chave primária da tabela de order header.
+        tests:
+          - not_null
+          - unique        
+
+      - name: order_date
+        description: Data do pedido.
+        tests:
+          - not_null
+          
+      - name: status_id
+        description: ID do status do pedido
+        tests:
+          - not_null
+       
+      - name: ship_date
+        description: Data de envio.
+        tests:
+          - not_null
+                
+      - name: cliente_id
+        description: ID do cliente. Chave secundária para conectar com a tabela stg_sales__customer.
+        tests:
+          - not_null
+          
+      - name: territory_id
+        description: ID do território. Chave secundária para conectar com a tabela stg_sales__salesterritory.
+        tests:
+          - not_null
+
+      - name: creditcard_id
+        description: ID do cartão de crédito. Chave secundária para conectar com a tabela stg_sales__creditcard.
+ 
+      - name: subtotal
+        description: Valor total antes dos impostos e frete.
+        tests:
+          - not_null   
+                
+      - name: taxamt
+        description: Valor das taxas e impostos.
+        tests:
+          - not_null   
+
+      - name: freight
+        description: Valor do frete.
+        tests:
+          - not_null 
+
+      - name: total_due
+        description: Valor total.
+        tests:
+          - not_null 
+                     
+                     

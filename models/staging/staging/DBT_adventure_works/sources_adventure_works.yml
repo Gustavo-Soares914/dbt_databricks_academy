@@ -142,10 +142,10 @@ sources:
               - not_null         
 
       - name: person_businessentityaddress
-        description: Tabela de endereço comercial 
+        description: Tabela de endereço da entidade de negócio 
         columns:
           - name: businessentityid
-            description: Chave primaria da tabela de endereço comercial
+            description: Chave primaria da tabela de endereço da entidade de negócio
               - unique
               - not_null
           

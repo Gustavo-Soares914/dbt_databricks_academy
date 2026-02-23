@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: stg_sales__sales_salesorderheadersalesreason
+    description: Staging da tabela sales_salesorderheadersalesreason da Adventure Works.
+
+    columns:
+      - name: salesorderid_pk
+        description: Chave primária da tabela de ligação entre motivo e ordem de venda.
+        tests:
+          - not_null
+
+      - name: sales_reason_id
+        description: Chave secundária para conectar com a tabela stg_sales__salesreason.
+        tests:
+          - not_null
+          

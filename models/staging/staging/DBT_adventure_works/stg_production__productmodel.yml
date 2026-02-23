@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: stg_production__productmodel
+    description: Staging da tabela production_productmodel da Adventure Works.
+
+    columns:
+      - name: model_id
+        description: Chave primária da tabela de modelo do produto.
+        tests:
+          - not_null
+          - unique
+
+      - name: model_name
+        description: Nome do modelo do produto.
+        tests:
+          - not_null

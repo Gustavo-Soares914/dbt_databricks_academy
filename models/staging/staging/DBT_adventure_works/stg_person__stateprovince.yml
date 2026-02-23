@@ -1,0 +1,32 @@
+version: 2
+
+models:
+  - name: stg_person__stateprovince
+    description: Staging da tabela person_stateprovince da Adventure Works.
+
+    columns:
+      - name: stateprovince_id
+        description: Chave primária da tabela de província.
+        tests:
+          - not_null
+          - unique
+
+      - name: state_province_code
+        description: Código da província.
+        tests:
+          - not_null
+
+      - name: country_region_code
+        description: Código da região.
+        tests:
+          - not_null
+
+      - name: province_name
+        description: Nome da província.
+        tests:
+          - not_null
+
+      - name: territory_id
+        description: ID do território para conectar na tabela sales_customer.
+        tests:
+          - not_null          

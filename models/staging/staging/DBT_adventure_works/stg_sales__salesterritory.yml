@@ -1,0 +1,37 @@
+version: 2
+
+models:
+  - name: stg_sales__salesterritory
+    description: Staging da tabela sales_salesterritory da Adventure Works.
+
+    columns:
+      - name: territory_id
+        description: Chave primária da tabela de território da venda.
+        tests:
+          - not_null
+          - unique        
+
+      - name: territory_name
+        description: Nome do território.
+        tests:
+          - not_null
+          
+      - name: country_region_code
+        description: Código da região do país. 
+        tests:
+          - not_null
+
+      - name: group
+        description: Grupo pertencente a venda. 
+        tests:
+          - not_null
+    
+      - name: sales_ytd
+        description: Vendas do início do ano até o dia atual de extração dos dados. 
+        tests:
+          - not_null
+
+      - name: sales_last_year
+        description: Vendas do do último ano. 
+        tests:
+          - not_null    
