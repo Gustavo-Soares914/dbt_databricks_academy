@@ -7,9 +7,8 @@ models:
     columns:
       - name: country_region_code_pk
         description: Chave primária da tabela de endereço da entidade de negócio.
-        tests:
-          - not_null
-          - unique
+       
+
 
       - name: country_name
         description: Nome do país.

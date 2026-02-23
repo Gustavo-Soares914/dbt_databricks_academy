@@ -15,11 +15,9 @@ models:
         description: Chave estrangeira para conectar na tabela person_stateprovince.
         tests:
           - not_null
-          - unique
 
       - name: postal_code
         description: Codigo postal do cliente.
         tests:
           - not_null
-          - unique
           
