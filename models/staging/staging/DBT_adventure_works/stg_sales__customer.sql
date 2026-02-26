@@ -10,6 +10,7 @@ renamed as (
         cast(customerid as int) as customer_id
         , cast (personid as int) as person_id
         , cast (territoryid as int) as territory_id_pk
+        , cast (storeid as int) as store_id
     from source_customer
 )
 

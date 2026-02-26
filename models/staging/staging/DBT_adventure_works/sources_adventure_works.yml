@@ -156,4 +156,20 @@ sources:
             description: Chave primaria da tabela de território da venda 
               - unique
               - not_null
+
+
+      - name: sales_store
+        description: Tabela de vendas para lojas
+        columns:
+          - name: businessentityid
+            description: Chave primaria da tabela de lojas 
+              - unique
+              - not_null
+
+        columns:
+          - name: salespersonid
+            description: Chave secundaria da tabela de lojas 
+              - not_null
+                                 
+                            
               

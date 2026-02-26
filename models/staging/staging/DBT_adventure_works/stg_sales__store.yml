@@ -1,0 +1,22 @@
+version: 2
+
+models:
+  - name: stg_sales__store
+    description: Staging da tabela sales_store da Adventure Works.
+
+    columns:
+      - name: business_entity_id
+        description: Chave primária da tabela de lojas.
+        tests:
+          - not_null
+          - unique  
+
+      - name: store_name
+        description: Nome das lojas.
+        tests:
+          - not_null
+
+      - name: store_id
+        description: Chave secundaria para ligar com a tabela stg_sales__customer.
+        tests:
+          - not_null
