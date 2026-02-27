@@ -23,6 +23,7 @@ with
             , sales_order_header.cliente_id as customer_id
             , sales_order_header.territory_id
             , sales_order_header.creditcard_id as credit_card_id
+            , sales_order_header.status_id
             
             , sales_order_detail.salesorderdetailid_pk as sales_order_detail_id
             , sales_order_detail.salesorder_id as order_id

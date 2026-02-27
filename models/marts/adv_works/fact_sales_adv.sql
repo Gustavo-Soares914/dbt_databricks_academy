@@ -31,10 +31,17 @@ with base as (
         from {{ ref('dim_date_adv') }}
 )
 
+, dim_status as (
+        select status_id
+        from {{ ref('dim_status_adv') }}
+)
+
+
 select 
     {{ dbt_utils.generate_surrogate_key(['base.sales_order_detail_id']) }} as sales_sk
     , base.sales_order_detail_id
     , base.sales_order_id
+    , base.status_id
 
     , dim_customer.customer_sk
     , dim_product.product_sk
@@ -68,3 +75,6 @@ left join dim_credit_card
 
 left join dim_date
     on cast(date_format(base.order_date, 'yyyyMMdd') as int) = dim_date.date_sk
+
+left join dim_status
+    on base.status_id = dim_status.status_id
