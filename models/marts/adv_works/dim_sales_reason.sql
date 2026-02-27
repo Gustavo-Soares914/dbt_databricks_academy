@@ -8,6 +8,23 @@ with base as (
 
 )
 
+, default_row as (
+
+    select
+        -1 as sales_reason_id
+        , 'Sem motivo informado' as sales_reason_name
+        , 'Unknown' as sales_reason_type
+
+)
+
+, final as (
+
+    select * from base
+    union all
+    select * from default_row
+
+)
+
 select
 
     {{ dbt_utils.generate_surrogate_key(['sales_reason_id']) }} as sales_reason_sk
@@ -15,4 +32,4 @@ select
     , sales_reason_name
     , sales_reason_type
 
-from base
+from final
