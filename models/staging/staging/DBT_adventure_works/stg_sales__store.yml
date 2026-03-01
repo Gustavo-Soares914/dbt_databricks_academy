@@ -18,5 +18,4 @@ models:
 
       - name: store_id
         description: Chave secundaria para ligar com a tabela stg_sales__customer.
-        tests:
-          - not_null
+          

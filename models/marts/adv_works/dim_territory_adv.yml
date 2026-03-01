@@ -12,3 +12,11 @@ models:
         tests:
           - unique
           - not_null
+
+      - name: territory_name
+        tests:
+          - not_null
+
+      - name: country_region_code
+        tests:
+          - not_null

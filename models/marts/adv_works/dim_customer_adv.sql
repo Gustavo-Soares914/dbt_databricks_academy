@@ -6,13 +6,10 @@ with base as (
 )
 
 select 
- -- Surrogate Key
+
     {{ dbt_utils.generate_surrogate_key(['customer_id']) }} as customer_sk
 
- -- Natural Key
     , base.customer_id
-
-    -- Atributos
     , base.full_name
     , base.person_id
     , base.address

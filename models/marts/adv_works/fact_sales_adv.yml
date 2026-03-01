@@ -67,3 +67,29 @@ models:
         description: Identificador do pedido para ligação com sales reason.
         tests:
           - not_null  
+
+      - name: status_id
+        description: Identificador do status para ligação com dim_status_adv.
+        tests:
+          - not_null  
+      
+      - name: date_sk
+        description: Identificador do data para ligação com dim_date_adv.
+        tests:
+          - not_null
+
+      - name: order_qty
+        description: Quantidade de produtos vendidos no pedido.
+        tests:
+          - not_null 
+
+      - name: unit_price
+        description: Valor unitario de cada produto.
+        tests:
+          - not_null  
+
+      - name: unit_price_discount
+        description: Desconto unitario de cada produto.
+        tests:
+          - not_null    
+      

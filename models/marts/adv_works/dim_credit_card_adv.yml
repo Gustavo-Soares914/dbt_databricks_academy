@@ -12,3 +12,20 @@ models:
         tests:
           - unique
           - not_null
+
+      - name: card_type
+        tests:
+          - not_null
+
+      - name: card_number
+        tests:
+          - unique
+          - not_null
+
+      - name: exp_month
+        tests:
+          - not_null
+
+      - name: exp_year
+        tests:
+          - not_null

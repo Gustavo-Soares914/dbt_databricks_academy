@@ -55,7 +55,7 @@ select
     , base.order_qty
     , base.unit_price
     , base.unit_price_discount
-    , cast(base.gross_amount as decimal (18,6)) as gross_amount
+    , cast(base.gross_amount as decimal(18,6)) as gross_amount
     , base.discount_amount
     , base.net_amount
 

@@ -13,8 +13,6 @@ with
     )
 
 
-    -- transformation
-
     , joined as (
         select
             sales_order_header.salesorderid_pk as sales_order_id
