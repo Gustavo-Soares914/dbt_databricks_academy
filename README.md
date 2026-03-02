@@ -1,15 +1,52 @@
-Welcome to your new dbt project!
+# Adventure Works Analytics
 
-### Using the starter project
+Este projeto implementa um pipeline analítico completo utilizando dados do Adventure Works, contemplando:
 
-Try running the following commands:
-- dbt run
-- dbt test
+- Modelagem dimensional em star schema
+- Transformações com dbt
+- Camada semântica para BI
+- Dashboard interativo no Power BI
 
+O objetivo é permitir análises de vendas por produto, cliente, território, motivo de venda e período.
 
-### Resources:
-- Learn more about dbt [in the docs](https://docs.getdbt.com/docs/introduction)
-- Check out [Discourse](https://discourse.getdbt.com/) for commonly asked questions and answers
-- Join the [dbt community](https://getdbt.com/community) to learn from other analytics engineers
-- Find [dbt events](https://events.getdbt.com) near you
-- Check out [the blog](https://blog.getdbt.com/) for the latest news on dbt's development and best practices
+# Arquitetura
+
+O projeto foi estruturado da segiinte maneira utilizabndo o DBT Cloud em conjunto com o Databricks.
+
+Raw → Staging → Intermediate → Mart → Power BI
+
+- Staging: padronização e limpeza
+- Intermediate: regras de negócio e joins
+- Mart: modelo dimensional final
+- BI: visualização e métricas
+
+# Modelagem de dados
+
+O modelo foi estruturado em star schema.
+
+### Fato
+- fact_sales_adv
+  - granularidade: item do pedido
+
+### Dimensões
+- dim_customer_adv
+- dim_products_adv
+- dim_territory_adv
+- dim_date_adv
+- dim_credit_card_adv
+- dim_status_adv
+- dim_sales_reason
+
+### Bridge
+- bridge_order_sales_reason
+  - resolve relacionamento N:N entre pedidos e motivos de venda
+
+# Testes
+No DBT foram aplicados testes de unique, not null e relationships nas tabelas .yml, estando presentes nas camadas Staging e Marts. Os testes foram aplicados principalmente nas chaves primárias, secundárias e surrogate keys. Foi identificado que existem alguns atributos na base de dados de origem que possuem preenchimento opcional, por esse motivo os testes de "not null" para esses atributos foram desativados. 
+
+# Visualização no BI
+Para uma melhor visualizações dos resultados foi estruturado um dashboard no Power Bi onde é possivel realizar as análises dos resultados obtidos após a modelagem.
+
+### Link Power BI
+- link
+ 
