@@ -48,5 +48,5 @@ No DBT foram aplicados testes de unique, not null e relationships nas tabelas .y
 Para uma melhor visualizações dos resultados foi estruturado um dashboard no Power Bi onde é possivel realizar as análises dos resultados obtidos após a modelagem.
 
 ### Link Power BI
-- link
+- link: https://app.powerbi.com/view?r=eyJrIjoiMzk5OGE5NjAtNDM0NC00NmYxLThlYWYtY2UyMDYyZmYyNTZhIiwidCI6ImQ0NjNhM2ZhLTliYmUtNDk1OS1iMGYxLTYzYjkzYjA0MzA0ZCJ9
  
