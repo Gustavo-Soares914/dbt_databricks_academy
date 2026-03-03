@@ -45,7 +45,7 @@ O modelo foi estruturado em star schema.
 No DBT foram aplicados testes de unique, not null e relationships nas tabelas .yml, estando presentes nas camadas Staging e Marts. Os testes foram aplicados principalmente nas chaves primárias, secundárias e surrogate keys. Foi identificado que existem alguns atributos na base de dados de origem que possuem preenchimento opcional, por esse motivo os testes de "not null" para esses atributos foram desativados. 
 
 # Visualização no BI
-Para uma melhor visualizações dos resultados foi estruturado um dashboard no Power Bi onde é possivel realizar as análises dos resultados obtidos após a modelagem.
+Para uma melhor visualização foi estruturado um dashboard no Power Bi onde é possivel realizar as análises dos resultados obtidos após a modelagem.
 
 ### Link Power BI
 - link: https://app.powerbi.com/view?r=eyJrIjoiMzk5OGE5NjAtNDM0NC00NmYxLThlYWYtY2UyMDYyZmYyNTZhIiwidCI6ImQ0NjNhM2ZhLTliYmUtNDk1OS1iMGYxLTYzYjkzYjA0MzA0ZCJ9
