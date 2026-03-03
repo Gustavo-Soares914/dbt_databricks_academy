@@ -44,6 +44,9 @@ O modelo foi estruturado em star schema.
 # Testes
 No DBT foram aplicados testes de unique, not null e relationships nas tabelas .yml, estando presentes nas camadas Staging e Marts. Os testes foram aplicados principalmente nas chaves primárias, secundárias e surrogate keys. Foi identificado que existem alguns atributos na base de dados de origem que possuem preenchimento opcional, por esse motivo os testes de "not null" para esses atributos foram desativados. 
 
+### Teste do CEO
+Um pedido especial do CEO da empresa Advebture Works foi que os dados precisavam ter uma garantia de qualidade e veracidade, com isso foi passado o valor total das vendas no ano de 2011, faturamento bruto R$ 12.646.112,16, na modelagem dos dados utilizando o DBT foi feito um teste que comprova essa veracidade, o teste se encontra na camada "tests" com o nome "test_gross_sales_2011". Porém, por questões de visualização, no dashboard em BI foi optado por utilizar o valor de faturmaneto final subtraindo os descontos unitados de cada produto, por esse motivo o faturamento no ano de 2011 mostrado no BI está com o valor total de R$ 12.641.672,21.
+
 # Visualização no BI
 Para uma melhor visualização foi estruturado um dashboard no Power Bi onde é possivel realizar as análises dos resultados obtidos após a modelagem.
 
