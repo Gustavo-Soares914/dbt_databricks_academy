@@ -11,7 +11,7 @@ O objetivo é permitir análises de vendas por produto, cliente, território, mo
 
 # Arquitetura
 
-O projeto foi estruturado da segiinte maneira utilizabndo o DBT Cloud em conjunto com o Databricks.
+O projeto foi estruturado da seguinte maneira utilizabndo o DBT Cloud em conjunto com o Databricks.
 
 Raw → Staging → Intermediate → Mart → Power BI
 
