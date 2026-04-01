@@ -1,0 +1,33 @@
+version: 2
+
+models:
+  - name: stg_sales__creditcard
+    description: Staging da tabela sales_creditcard da Adventure Works.
+
+    columns:
+      - name: cartao_id_pk
+        description: Chave primária da tabela de cartão de crédito.
+        tests:
+          - not_null
+          - unique
+
+      - name: tipo_cartao
+        description: Tipo do cartão de crédito.
+        tests:
+          - not_null
+
+      - name: numero_cartao
+        description: Número do cartão de crédito.
+        tests:
+          - not_null
+          - unique
+
+      - name: exp_month
+        description: Mês de expiração.
+        tests:
+          - not_null
+
+      - name: exp_year
+        description: Ano de expiração.
+        tests:
+          - not_null    

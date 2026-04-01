@@ -64,9 +64,112 @@ sources:
             description: Chave primaria da tabela de endereço
             tests:
               - unique
-              - not_null        
-          
+              - not_null
+          - name: stateprovinceid
+            description: Chave estrangeira para conectar na tabela person_stateprovince
 
+      - name: sales_salesorderheadersalesreason
+        description: Tabela de razao de compra
+        columns:
+          - name: salesorderid
+            description: Chave primaria da tabela de razao da compra
+            tests:
+              - not_null
+          - name: salesreasonid
+            description: Chave estrangeira para conectar com a tabela sales_salesreason 
+
+      - name: production_product
+        description: Tabela de produtos
+        columns:
+          - name: productid
+            description: Chave primaria da tabela de produtos
+            tests:
+              - unique
+              - not_null
           
-            
-            
+      - name: production_productcategory
+        description: Tabela de categorias de produtos
+        columns:
+          - name: productcategoryid
+            description: Chave primaria da categorias de produtos
+            tests:
+              - unique
+              - not_null
+                    
+      - name: production_productmodel
+        description: Tabela de modelos
+        columns:
+          - name: productmodelid
+            description: Chave primaria da tabela de modelos
+            tests:
+              - unique
+              - not_null
+
+      - name: production_productsubcategory
+        description: Tabela de subcategorias
+        columns:
+          - name: productsubcategoryid
+            description: Chave primaria da tabela de modelos
+            tests:
+              - unique
+              - not_null          
+          - name: productcategoryid
+            description: Chave estrangeira para conectar com a tabela production_productcategory
+
+      - name: person_stateprovince
+        description: Tabela de estado provincia
+        columns:
+          - name: stateprovinceid
+            description: Chave primaria da tabela de provincia
+            tests:
+              - unique
+              - not_null
+
+      - name: person_person
+        description: Tabela de pessoa
+        columns:
+          - name: businessentityid
+            description: Chave primaria da tabela de pessoa
+              - unique
+              - not_null  
+
+      - name: person_countryregion
+        description: Tabela de país 
+        columns:
+          - name: countryregioncode
+            description: Chave primaria da tabela de pais
+              - unique
+              - not_null         
+
+      - name: person_businessentityaddress
+        description: Tabela de endereço da entidade de negócio 
+        columns:
+          - name: businessentityid
+            description: Chave primaria da tabela de endereço da entidade de negócio
+              - unique
+              - not_null
+          
+      - name: sales_salesterritory
+        description: Tabela de território da venda
+        columns:
+          - name: territoryid
+            description: Chave primaria da tabela de território da venda 
+              - unique
+              - not_null
+
+
+      - name: sales_store
+        description: Tabela de vendas para lojas
+        columns:
+          - name: businessentityid
+            description: Chave primaria da tabela de lojas 
+              - unique
+              - not_null
+
+        columns:
+          - name: salespersonid
+            description: Chave secundaria da tabela de lojas 
+              - not_null
+                                 
+                            
+              

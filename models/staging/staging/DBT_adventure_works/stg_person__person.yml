@@ -1,0 +1,27 @@
+version: 2
+
+models:
+  - name: stg_person__person
+    description: Staging da tabela person_person da Adventure Works.
+
+    columns:
+      - name: business_entity_id
+        description: Chave primária da tabela de pessoa.
+        tests:
+          - not_null
+          - unique
+
+      - name: person_type
+        description: Tipo de pessoa.
+        tests:
+          - not_null
+
+      - name: first_name
+        description: Primeiro nome.
+        tests:
+          - not_null
+
+      - name: last_name
+        description: Último nome.
+        tests:
+          - not_null

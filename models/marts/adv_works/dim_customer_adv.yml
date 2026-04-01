@@ -1,0 +1,50 @@
+version: 2
+
+models:
+  - name: dim_customer_adv  
+    columns:
+      - name: customer_sk
+        tests:
+          - unique
+          - not_null
+
+      - name: customer_id
+        tests:
+          - unique
+          - not_null
+
+      - name: person_id
+        tests:
+          - unique
+
+      - name: address
+        tests:
+          - not_null
+
+      - name: city
+        tests:
+          - not_null
+
+      - name: province_id
+        tests:
+          - not_null
+
+      - name: postal_code
+        tests:
+          - not_null
+
+      - name: country_region_code
+        tests:
+          - not_null
+
+      - name: province_name
+        tests:
+          - not_null
+
+      - name: territory_id
+        tests:
+          - not_null
+
+      - name: country_name
+        tests:
+          - not_null

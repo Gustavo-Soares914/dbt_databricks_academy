@@ -1,0 +1,41 @@
+version: 2
+
+models:
+  - name: stg_sales__salesorderdetail
+    description: Staging da tabela sales_salesorderdetail da Adventure Works.
+
+    columns:
+      - name: salesorderdetailid_pk
+        description: Chave primária da tabela de detalhes da venda.
+        tests:
+          - not_null
+          - unique        
+
+      - name: salesorder_id
+        description: ID da ordem de pedido.
+        tests:
+          - not_null
+          
+      - name: quantidade
+        description: Quantidade de produtos no pedido.
+       
+      - name: produto_id
+        description: ID do produto, chave secundaria para conectar com a tabela stg_production__product.
+        tests:
+          - not_null
+                
+      - name: specialoffer_id
+        description: ID da oferta especial.
+        tests:
+          - not_null
+          
+      - name: preco_unitario
+        description: Preço unitário de cada produto.
+        tests:
+          - not_null    
+
+      - name: desconto_unitario
+        description: Desconto
+         unitário de cada produto.
+        tests:
+          - not_null        

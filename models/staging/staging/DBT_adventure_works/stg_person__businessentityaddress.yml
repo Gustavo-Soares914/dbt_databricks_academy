@@ -1,0 +1,20 @@
+version: 2
+
+models:
+  - name: stg_person__businessentityaddress
+    description: Staging da tabela person_businessentityaddress da Adventure Works.
+
+    columns:
+      - name: business_entity_id_pk
+        description: Chave primária da tabela de endereço da entidade de negócio.
+        tests:
+          - not_null
+
+
+      - name: address_id_pk
+        description: Chave estrangeira para conectar na tabela person_address.
+        tests:
+          - not_null
+          - unique
+
+          

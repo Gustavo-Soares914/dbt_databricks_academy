@@ -1,0 +1,30 @@
+version: 2
+
+models:
+  - name: stg_production__product
+    description: Staging da tabela production_product da Adventure Works.
+
+    columns:
+      - name: product_id
+        description: Chave primária da tabela de produto.
+        tests:
+          - not_null
+          - unique
+
+      - name: product_name
+        description: Nome do produto.
+        tests:
+          - not_null
+
+      - name: product_number
+        description: Número do produto.
+        tests:
+          - not_null
+
+      - name: product_subcategory_id
+        description: Chave secundária para conectar com a tabela stg_production__productsubcategory.
+
+      - name: product_model_id
+        description: Chave secundária para conectar com a tabela stg_production__productmodel.
+        
+          

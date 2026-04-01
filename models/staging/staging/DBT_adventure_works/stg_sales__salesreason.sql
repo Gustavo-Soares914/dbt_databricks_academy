@@ -7,9 +7,9 @@ source_salesreason as (
 
 renamed as (
     select  
-        cast(salesreasonid as int) as salesreasonid_pk -- devo colocar PK em todas?
-        , cast (name as string) as nome
-        , cast (reasontype as string) as motivo_da_compra
+        cast(salesreasonid as int) as sales_reason_id
+        , cast (name as string) as sales_reason_name
+        , cast (reasontype as string) as sales_reason_type
         
     from source_salesreason
 )

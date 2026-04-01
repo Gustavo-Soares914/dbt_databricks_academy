@@ -1,0 +1,23 @@
+version: 2
+
+models:
+  - name: stg_person__address
+    description: Staging da tabela person_address da Adventure Works.
+
+    columns:
+      - name: address_id
+        description: Chave primária da tabela de endereço.
+        tests:
+          - not_null
+          - unique
+
+      - name: province_id
+        description: Chave estrangeira para conectar na tabela person_stateprovince.
+        tests:
+          - not_null
+
+      - name: postal_code
+        description: Codigo postal do cliente.
+        tests:
+          - not_null
+          

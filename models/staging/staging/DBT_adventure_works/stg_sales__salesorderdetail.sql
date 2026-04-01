@@ -11,9 +11,9 @@ renamed as (
         , cast (salesorderid as int) as salesorder_id
         , cast (orderqty as int) as quantidade
         , cast (productid as int) as produto_id
-        , cast ( specialofferid as int) as specialoffer_id
-        , cast (unitprice as decimal (10,2)) as preco_unitario -- verificar se eu coloquei corretamente o DECIMAL
-        , cast (unitpricediscount as decimal (5,2)) as desconto_unitario -- verificar essa questão do desconto, se está em porcentagem
+        , cast (specialofferid as int) as specialoffer_id
+        , cast (unitprice as decimal (18,6)) as preco_unitario -- verificar se eu coloquei corretamente o DECIMAL
+        , cast (unitpricediscount as decimal (18,6)) as desconto_unitario -- verificar essa questão do desconto, se está em porcentagem
     
     from source_salesorderdetail
 )

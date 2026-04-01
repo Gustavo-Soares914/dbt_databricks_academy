@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: stg_person__countryregion
+    description: Staging da tabela person_countryregion da Adventure Works.
+
+    columns:
+      - name: country_region_code_pk
+        description: Chave primária da tabela de endereço da entidade de negócio.
+       
+
+
+      - name: country_name
+        description: Nome do país.
+        tests:
+          - not_null
+          - unique
